@@ -1,6 +1,9 @@
 # PDFs Data
 data/
+qdrant_storage/
 
+# venvs
+.frontend/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

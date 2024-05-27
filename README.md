@@ -42,6 +42,50 @@ Follow these steps to set up and run the backend:
     ```
     You can add more flags by referring to the [Uvicorn documentation](https://www.uvicorn.org/#command-line-options).
 
+
+### Building the Frontend
+
+Follow these steps to set up and run the frontend:
+
+1. Navigate to the `frontend` directory:
+    ```bash
+    cd frontend
+    ```
+2. Create a separate `requirements.txt` for the frontend and list your frontend dependencies there.
+3. Create a virtual environment:
+    ```bash
+    python -m virtualenv .frontend
+    ```
+4. Activate the virtual environment:
+    ```bash
+    .frontend\Scripts\activate
+    ```
+    For Unix or MacOS, use:
+    ```bash
+    source .frontend/bin/activate
+    ```
+5. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+6. Setting Up Qdrant
+
+    Follow these steps to set up Qdrant:
+
+    1. Pull the Qdrant Docker image:
+        ```bash
+        docker pull qdrant/qdrant
+        ```
+    2. Run the Qdrant container:
+        ```bash
+        docker run -p 6333:6333 -p 6334:6334 -v ${PWD}qdrant_storage:/qdrant/storage:z qdrant/qdrant
+        ```
+
+7. Run the frontend application using Streamlit:
+    ```bash
+    streamlit run streamlit_app.py
+    ```
+
 ### Data Sources and Databases
 
 We collect data from various sources across the internet and store it in the following databases:
@@ -55,7 +99,10 @@ To provide accurate answers to user queries, we implement a vector search techni
 
 ## Customizing Your AI Assistant
 
-Creating your own AI assistant is straightforward. By modifying specific data and values in the provided templates, you can develop an AI assistant tailored to any profession or field of your choice. 
+Creating your own AI assistant is straightforward. By modifying specific data and values in the provided templates, you can develop an AI assistant tailored to any profession or field of your choice.
+
+1. Open globalconstants and simply change values, like category and assistant.
+2. Add the data inside the data folder.
 
 Explore the possibilities and build your own specialized AI assistant today!
 
